@@ -55,7 +55,7 @@ export const App = () => {
           <input required type="password" id="password" name="password" />
         </div>
         <button type="submit" className={styles.button} id="loginButton">
-          Login
+          Sign in
         </button>
       </form>
     </div>
