@@ -29,4 +29,4 @@ jobs:
           LOGTO_AUTH: ${{ secrets.LOGTO_AUTH }} # Your M2M credentials
           LOGTO_ENDPOINT: ${{ secrets.LOGTO_ENDPOINT }} # Your Logto endpoint
           LOGTO_RESOURCE: ${{ secrets.LOGTO_RESOURCE }} # Your Logto resource
-        run: npx logto-tunnel deploy --path /dist
+        run: npx logto-tunnel deploy --path ./dist
