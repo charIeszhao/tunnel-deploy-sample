@@ -3,7 +3,7 @@ name: Deploy to Logto Cloud
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -18,12 +18,15 @@ jobs:
         with:
           node-version: '20' # Specify your Node.js version
 
-      - name: Install dependencies and build
-        run: npm install && npm build
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm build
 
       - name: Deploy to Logto Cloud
         env:
           LOGTO_AUTH: ${{ secrets.LOGTO_AUTH }} # Your M2M credentials
           LOGTO_ENDPOINT: ${{ secrets.LOGTO_ENDPOINT }} # Your Logto endpoint
           LOGTO_RESOURCE: ${{ secrets.LOGTO_RESOURCE }} # Your Logto resource
-        run: tunnel deploy --auth $LOGTO_AUTH --endpoint $LOGTO_ENDPOINT --path ./dist --resource $LOGTO_RESOURCE
+        run: tunnel deploy --path /dist
